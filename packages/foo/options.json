@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema",
+  "type": "object",
+  "title": "GraphQLComplexityLimitInboundPolicyOptions",
+  "description": "The options for this policy.",
+  "required": ["useComplexityLimit", "useDepthLimit"],
+  "additionalProperties": false,
+  "properties": {
+    "useComplexityLimit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["maxComplexity", "variables"],
+      "properties": {
+        "complexityLimit": {
+          "type": "number",
+          "examples": [10],
+          "description": "The maximum complexity a query is allowed to have."
+        },
+        "endpointUrl": {
+          "type": "string",
+          "description": "The endpoint URL to use for the complexity calculation."
+        }
+      }
+    },
+    "useDepthLimit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["maxDepth"],
+      "properties": {
+        "depthLimit": {
+          "type": "number",
+          "description": "The maximum depth a query is allowed to have."
+        },
+        "ignore": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The fields to ignore when calculating the depth of a query."
+        }
+      }
+    }
+  }
+}

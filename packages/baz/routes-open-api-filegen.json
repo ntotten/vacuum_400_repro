@@ -1,0 +1,5 @@
+{
+  "routes": {
+    "$ref": "$import(./schemas/response.json)"
+  }
+}

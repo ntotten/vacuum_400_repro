@@ -1,0 +1,20 @@
+rules:
+  required-top-level-fields:
+    description: "Required fields"
+    severity: error
+    given: $
+    then:
+      - field: title
+        function: truthy
+      - field: description
+        function: truthy
+      - field: additionalProperties
+        function: falsy
+  descriptions-must-end-in-period:
+    description: "Descriptions must end in a period"
+    severity: error
+    given: "$..description"
+    then:
+      function: "pattern"
+      functionOptions:
+        match: "\\.$"
